@@ -15,13 +15,35 @@ import com.testing.microservices.wsarticulo.ws.ArticuloWS;
 public class ArticuloWSImpl implements ArticuloWS {
 	
 	@WebMethod(operationName="saveArticulo")
-	public @WebResult(name="articulo") Articulo saveArticulo(ArticuloRequest articuloRequest) {
+	public @WebResult(name="articulo") Articulo saveArticulo(ArticuloRequest articuloRequest, String usuario, String idioma) {
 		
 		return Articulo
 				.builder()
 				.idArticulo(1L)
-				.codigo("Artículo1")
-				.descripcion("Artículo 1")
+				.codigo(articuloRequest.getCodigo())
+				.descripcion(articuloRequest.getDescripcion())
+				.build();
+	}
+	
+	@WebMethod(operationName="deleteArticulo")
+	public @WebResult(name="articulo") Articulo deleteArticulo(ArticuloRequest articuloRequest, String usuario, String idioma) {
+		
+		return Articulo
+				.builder()
+				.idArticulo(2L)
+				.codigo(articuloRequest.getCodigo())
+				.descripcion(articuloRequest.getDescripcion())
+				.build();
+	}
+	
+	@WebMethod(operationName="editArticulo")
+	public @WebResult(name="articulo") Articulo editArticulo(ArticuloRequest articuloRequest, String usuario, String idioma) {
+		
+		return Articulo
+				.builder()
+				.idArticulo(3L)
+				.codigo(articuloRequest.getCodigo())
+				.descripcion(articuloRequest.getDescripcion())
 				.build();
 	}
 }
