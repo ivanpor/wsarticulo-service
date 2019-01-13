@@ -20,8 +20,8 @@ public class ArticuloWSImpl implements ArticuloWS {
 		return Articulo
 				.builder()
 				.idArticulo(1L)
-				.codigo("Artículo1")
-				.descripcion("Artículo 1")
+				.codigo(articuloRequest.getCodigo())
+				.descripcion(articuloRequest.getDescripcion())
 				.build();
 	}
 }
